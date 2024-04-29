@@ -10,6 +10,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [categoria, setCategoria] = useState("");
   const [fotos, setFotos] = useState([]);
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
 
   const fetchData = async ({ query, categoria }) => {
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY;
@@ -30,8 +31,8 @@ function App() {
   return (
     <div className="container">
       <SearchBar />
-      <FotoList fotos={fotos} />
-      <FotoAmpliada />
+      <FotoList fotos={fotos} setFotoAmpliada={setFotoAmpliada} />
+      <FotoAmpliada foto={fotoAmpliada} setFotoAmpliada={setFotoAmpliada} />
     </div>
   );
 }
